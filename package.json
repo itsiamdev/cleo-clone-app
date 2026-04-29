@@ -1,6 +1,7 @@
 {
   "name": "tanstack_start_ts",
   "private": true,
+  "homepage": "https://itsiamdev.github.io/cleo-clone-app",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -9,7 +10,10 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy": "wrangler deploy",
+    "predeploy:gh": "npm run build",
+    "deploy:gh": "gh-pages -d dist/client"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -51,6 +55,7 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.38.0",
+    "gh-pages": "^6.2.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
     "react": "^19.2.0",

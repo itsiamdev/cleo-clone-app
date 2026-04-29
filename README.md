@@ -79,6 +79,38 @@ npm run build
 npm run preview
 ```
 
+### Deploy to GitHub Pages
+
+#### Quick Deploy (one-time setup)
+
+1. **Install gh-pages** (already added as dependency):
+```bash
+npm install gh-pages --save-dev
+```
+
+2. **Update repository name** in `package.json` - Replace `[username]` in the `homepage` field with your GitHub username:
+```json
+"homepage": "https://<your-username>.github.io/cleo-clone-app",
+```
+
+3. **Deploy using GitHub Actions (recommended)**:
+   - Push your code to GitHub
+   - Go to **Settings → Pages** in your repository
+   - Under "Build and deployment", select **GitHub Actions** as the source
+   - Select the `main` branch → `/ (root)` folder
+   - The workflow will automatically build and deploy on every push to `main`
+
+4. **Or deploy manually**:
+```bash
+npm run predeploy:gh
+npm run deploy:gh
+```
+
+5. **Enable GitHub Pages**:
+   - Repository → Settings → Pages
+   - Source: **GitHub Actions**
+   - Your site will be available at: `https://<your-username>.github.io/cleo-clone-app`
+
 ## 📋 Project Structure
 
 ```

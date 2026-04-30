@@ -79,6 +79,38 @@ npm run build
 npm run preview
 ```
 
+### Deploy to Vercel
+
+1. **Push to GitHub** (required for Vercel Git integration):
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/[user]/cleo-clone-app.git
+git push -u origin main
+```
+
+2. **Import project on Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project" → "Import Git Repository"
+   - Select your GitHub repository
+
+3. **Configure project**:
+   - Framework Preset: **Vite**
+   - Build Command: `npm run build:vercel` (optional - default `npm run build` works)
+   - Output Directory: `dist/client/client`
+   - Install Command: `npm install`
+
+4. **Deploy**:
+   - Click "Deploy"
+   - Your app will be live at `https://[project-name].vercel.app`
+
+**Manual Vercel CLI deployment** (alternative):
+```bash
+npm install -g vercel
+vercel --prod
+```
+
 ### Deploy to GitHub Pages
 
 #### Quick Deploy (one-time setup)

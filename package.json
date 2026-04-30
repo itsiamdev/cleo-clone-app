@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "deploy": "wrangler deploy",
     "predeploy:gh": "npm run build",
-    "deploy:gh": "gh-pages -d dist/client"
+    "deploy:gh": "gh-pages -d dist/client/client"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",

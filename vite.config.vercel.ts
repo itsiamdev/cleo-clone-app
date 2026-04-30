@@ -1,14 +1,27 @@
-// Extend the Lovable TanStack config while customizing for Vercel
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+// Vercel-specific Vite configuration
+// Builds client-only SPA for static hosting
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
+import { tanstackRouter } from "@tanstack/router-plugin";
 
 export default defineConfig({
-  vite: {
-    // Override base path for Vercel (root deployment)
-    base: "/",
-    build: {
-      // Custom output directory for Vercel static build
-      outDir: "dist/client/client",
-      emptyOutDir: true,
-    },
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    tailwindcss(),
+    tanstackRouter({
+      // Generate route tree for client-side routing
+    }),
+  ],
+  build: {
+    // Output to root dist for Vercel
+    outDir: "dist",
+    emptyOutDir: true,
+    // No SSR - pure client build
+    ssr: false,
   },
+  // Override base path for Vercel root deployment
+  base: "/",
 });

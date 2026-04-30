@@ -6,7 +6,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/client/client",
+        "distDir": "dist",
         "buildCommand": "npm run build:vercel"
       }
     }
@@ -16,6 +16,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "cleanUrls": true
+  ]
 }

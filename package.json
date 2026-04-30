@@ -7,14 +7,14 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "build:vercel": "vite build --config vite.config.vercel.ts",
+    "build:vercel": "vite build --config vite.config.vercel.ts && node scripts/generate-vercel-html.js",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
     "deploy": "wrangler deploy",
     "predeploy:gh": "npm run build",
-    "deploy:gh": "gh-pages -d dist/client/client"
+    "deploy:gh": "gh-pages -d dist"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
